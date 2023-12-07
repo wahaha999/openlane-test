@@ -1,0 +1,1 @@
+export const favoriteColors = ['blue', 'red', 'green', 'yellow', 'purple', 'black', 'orange'];
