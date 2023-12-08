@@ -1,4 +1,3 @@
-```
 # User Profile Management (OpenLane test)
 
 ## Overview
@@ -80,4 +79,3 @@ Profiles are stored in local storage in the following format:
 - Implement more robust error handling and validation.
 - Add responsiveness for mobile and tablet viewports.
 - Integrate testing frameworks for unit and integration tests.
-```
