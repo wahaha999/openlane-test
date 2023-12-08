@@ -1,4 +1,3 @@
-import React from 'react'
 import Avatar, { AvatarProps } from '@mui/material/Avatar'
 import { styled } from '@mui/material'
 import { Person } from '@mui/icons-material'

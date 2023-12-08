@@ -19,7 +19,7 @@ import IconButtonList from './components/iconButtonList';
 import ContactDetail from './components/contactDetail';
 
 const ViewProfile = () => {
-    const email = localStorageUtil.getItem('email') as string;
+    const email = localStorageUtil.getItem<string>('email') as string;
     const navigate = useNavigate();
     // Delete Confirm
     const [confirmOpen, setConfirmOpen] = React.useState(false);
@@ -30,7 +30,7 @@ const ViewProfile = () => {
     const { setTheme } = useTheme();
 
     React.useEffect(() => {
-        const favColor = localStorageUtil.getItem('favoriteColor') as string
+        const favColor = localStorageUtil.getItem<string>('favoriteColor') as string
         setTheme(favColor);
         setSessionStart();
 

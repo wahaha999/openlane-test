@@ -48,7 +48,7 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
     });
     const navigate = useNavigate();
     const { setTheme } = useTheme();
-    const prevFavColor = localStorageUtil.getItem('favoriteColor') as string;
+    const prevFavColor = localStorageUtil.getItem<string>('favoriteColor') as string;
 
     React.useEffect(() => {
         setTheme(prevFavColor);

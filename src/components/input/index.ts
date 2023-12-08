@@ -1,4 +1,4 @@
-import CustomizedInput from "./customizedInput";
+import CustomizedInput from "./CustomizedInput";
 import PhoneInput from "./PhoneInput";
 
 export { CustomizedInput, PhoneInput };

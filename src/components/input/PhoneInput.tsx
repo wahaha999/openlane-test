@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { CustomizedInput } from '.';
-import CustomIMaskInput from './cutomizedIMaskInput';
+import CustomIMaskInput from './CutomizedIMaskInput';
 
 
 interface PhoneInputProps {
