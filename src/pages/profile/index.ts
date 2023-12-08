@@ -1,5 +1,5 @@
 import EditProfile from './edit'
-import ViewProfile from './view'
+import ViewProfile from './detail'
 
 export {
   EditProfile,

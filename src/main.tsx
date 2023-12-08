@@ -1,13 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import { BrowserRouter as Router } from 'react-router-dom'
-import './index.css'
+import { CustomThemeProvider } from './context/themeContext.tsx'
+// import './index.css'
+// import { ThemeContextProvider } from './context/themeContext.ts'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Router>
+    <CustomThemeProvider>
       <App />
-    </Router>
+    </CustomThemeProvider>
   </React.StrictMode>,
 )
