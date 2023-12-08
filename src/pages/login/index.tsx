@@ -105,10 +105,10 @@ const Login = () => {
                         alignItems="center"
                         sx={{ mt: 2 }}
                     >
-                        <Grid item lg={8} md={8} sm={12}>
+                        <Grid item lg={8} md={8}>
                             <Link to="/profile/create">Don't have a profile? Create a new one</Link>
                         </Grid>
-                        <Grid item lg={4} md={4} sm={12} sx={{ textAlign: "right" }}>
+                        <Grid item lg={4} md={4} sx={{ textAlign: "right" }}>
                             <Button
                                 type='submit'
                                 variant="contained"

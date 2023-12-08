@@ -1,4 +1,4 @@
-const SESSION_TIMEOUT = 60000;
+const SESSION_TIMEOUT = 10000000;
 
 export const setSessionStart = (): void => {
   const currentTime = new Date().getTime();

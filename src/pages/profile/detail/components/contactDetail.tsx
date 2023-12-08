@@ -22,24 +22,24 @@ const ContactDetail = ({profile}: Props) => {
                 <Grid item md={12} sm={12}>
                     <Typography sx={{ my: 2 }} variant='h5'>Contact details</Typography>
                 </Grid>
-                <Grid container item md={1} sm={3} alignItems='center' >
+                <Grid container item md={1} sm={2} alignItems='center' >
                     <EmailOutlined />
                 </Grid>
-                <Grid item md={11} sm={9}>
+                <Grid item md={11} sm={10}>
                     <Typography variant="h6">{profile.email}</Typography>
                 </Grid>
 
-                <Grid container item md={1} sm={3} alignItems='center' >
+                <Grid container item md={1} sm={2} alignItems='center' >
                     <LocalPhoneOutlined />
                 </Grid>
-                <Grid item md={11} sm={9}>
+                <Grid item md={11} sm={10}>
                     <Typography variant="h6">{profile.phoneNumber}</Typography>
                 </Grid>
 
-                <Grid container item md={1} sm={3} alignItems='center' >
+                <Grid container item md={1} sm={2} alignItems='center' >
                     <ColorLensOutlined />
                 </Grid>
-                <Grid item md={11} sm={9}>
+                <Grid item md={11} sm={10}>
                     <OLColorButton title={profile.favoriteColor} />
                 </Grid>
             </Grid>

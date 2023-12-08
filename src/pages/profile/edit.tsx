@@ -113,10 +113,10 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                     <Box sx={{ mt: 1 }}>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <Grid container>
-                                <Grid item container md={2} sm={12} justifyContent={'center'} alignItems='center'>
+                                <Grid item container md={2} justifyContent={'center'} alignItems='center'>
                                     <EmailOutlined />
                                 </Grid>
-                                <Grid item md={10} sm={12}>
+                                <Grid item md={10}>
                                     <Controller
                                         control={control}
                                         name="email"
@@ -132,10 +132,10 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                 </Grid>
 
 
-                                <Grid item container md={2} sm={12} justifyContent={'center'} alignItems='center'>
+                                <Grid item container md={2} justifyContent={'center'} alignItems='center'>
                                     <LockOutlined />
                                 </Grid>
-                                <Grid item md={10} sm={12}>
+                                <Grid item md={10}>
                                     <Controller
                                         control={control}
                                         name="password"
@@ -151,10 +151,10 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                 </Grid>
 
 
-                                <Grid item container md={2} sm={12} justifyContent={'center'} alignItems='center'>
+                                <Grid item container md={2} justifyContent={'center'} alignItems='center'>
                                     <PersonOutline />
                                 </Grid>
-                                <Grid item md={10} sm={12}>
+                                <Grid item md={10}>
                                     <Controller
                                         control={control}
                                         name="fullName"
@@ -168,10 +168,10 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                     />
                                 </Grid>
 
-                                <Grid item container md={2} sm={12} justifyContent={'center'} alignItems='center'>
+                                <Grid item container md={2} justifyContent={'center'} alignItems='center'>
                                     <LocalPhoneOutlined />
                                 </Grid>
-                                <Grid item md={10} sm={12}>
+                                <Grid item md={10}>
                                     <Controller
                                         control={control}
                                         name="phoneNumber"
@@ -187,10 +187,10 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                     />
                                 </Grid>
 
-                                <Grid item container md={2} sm={12} justifyContent={'center'} alignItems='center'>
+                                <Grid item container md={2} justifyContent={'center'} alignItems='center'>
                                     <ColorLensOutlined />
                                 </Grid>
-                                <Grid item md={10} sm={12}>
+                                <Grid item md={10}>
                                     <Controller
                                         name="favoriteColor"
                                         control={control}
@@ -225,8 +225,6 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                     </Button>
                                 </Grid>
                             </Grid>
-
-
                         </form>
                         <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose}>
                             <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
