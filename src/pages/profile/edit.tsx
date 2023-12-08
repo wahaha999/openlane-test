@@ -116,7 +116,7 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                 <Grid item container md={2} justifyContent={'center'} alignItems='center'>
                                     <EmailOutlined />
                                 </Grid>
-                                <Grid item md={10}>
+                                <Grid item md={10} sm={12}>
                                     <Controller
                                         control={control}
                                         name="email"
@@ -135,7 +135,7 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                 <Grid item container md={2} justifyContent={'center'} alignItems='center'>
                                     <LockOutlined />
                                 </Grid>
-                                <Grid item md={10}>
+                                <Grid item md={10} sm={12}>
                                     <Controller
                                         control={control}
                                         name="password"
@@ -154,7 +154,7 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                 <Grid item container md={2} justifyContent={'center'} alignItems='center'>
                                     <PersonOutline />
                                 </Grid>
-                                <Grid item md={10}>
+                                <Grid item md={10} sm={12}>
                                     <Controller
                                         control={control}
                                         name="fullName"
@@ -171,7 +171,7 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                 <Grid item container md={2} justifyContent={'center'} alignItems='center'>
                                     <LocalPhoneOutlined />
                                 </Grid>
-                                <Grid item md={10}>
+                                <Grid item md={10} sm={12}>
                                     <Controller
                                         control={control}
                                         name="phoneNumber"
@@ -190,7 +190,7 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                 <Grid item container md={2} justifyContent={'center'} alignItems='center'>
                                     <ColorLensOutlined />
                                 </Grid>
-                                <Grid item md={10}>
+                                <Grid item md={10} sm={12}>
                                     <Controller
                                         name="favoriteColor"
                                         control={control}
