@@ -13,14 +13,17 @@ import { useTheme } from './context/themeContext';
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<AppLayout />}>
     <Route index element={<Navigate to="/login" replace />} />
+
     <Route path='login' element={<AuthLayout />}>
       <Route index element={<Login />} />
     </Route>
+
     <Route path='profile' element={<ProfileLayout />}>
       <Route index element={<ViewProfile />} />
       <Route path='create' element={<EditProfile mode='create' />} />
       <Route path='edit' element={<EditProfile mode='edit' />} />
     </Route>
+    
     <Route path="*" element={<Navigate to="/login" replace />} />
   </Route>
 ));
