@@ -1,3 +1,10 @@
+import { getData } from "./data";
+
+export const checkAuth = () => {
+  const profile = getData();
+  return profile.email.length > 0
+};
+
 const SESSION_TIMEOUT = 60000;
 
 export const setSessionStart = (): void => {

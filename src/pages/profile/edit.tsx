@@ -31,7 +31,7 @@ interface PropsType {
 const capitalizeString = (str: string) => {
     let capitalizedStr = str.charAt(0).toUpperCase() + str.slice(1)
     if (str === 'edit') {
-        let name = localStorageUtil.getItem<string>('fullName');
+        let name = localStorageUtil.getItem<string>('fullName') as string;
         capitalizedStr = capitalizedStr + " " + name;
     }
     return capitalizedStr + ' Profile'
