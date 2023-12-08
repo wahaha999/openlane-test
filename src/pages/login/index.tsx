@@ -25,8 +25,8 @@ const Login = () => {
     const { control, handleSubmit, formState: { errors } } = useForm<LoginFormValues>({
         resolver: yupResolver(loginSchema),
         defaultValues: {
-            email: '', // Initialize email with an empty string or a default value
-            password: '' // Initialize password with an empty string or a default value
+            email: '', 
+            password: '' 
         }
     });
     const navigate = useNavigate();
@@ -42,7 +42,6 @@ const Login = () => {
             const isSuccess = searchData(data);
             if (isSuccess) {
                 saveData(isSuccess);
-                // themeSelector();
                 navigate(`/profile`);
             } else {
                 setMessage('Email or password is correct.');
@@ -94,7 +93,7 @@ const Login = () => {
                                 type="password"
                                 helperText={errors.password?.message}
                                 error={!!errors.password}
-                                {...field} // Spread the field props into Input
+                                {...field}
                             />
                         )}
                     />

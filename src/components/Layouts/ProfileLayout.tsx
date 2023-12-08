@@ -5,7 +5,6 @@ export default function ProfileLayout() {
     return (
         <Box
             sx={{
-                // mt: 20,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",

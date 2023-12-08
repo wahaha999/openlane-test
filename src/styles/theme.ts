@@ -15,7 +15,6 @@ export const themeGenerator = (color: string) => {
       },
     },
     typography:{
-        // fontFamily:"Google Sans",
         fontWeightBold:800,
         fontWeightRegular:600
     },
@@ -31,12 +30,3 @@ export const themeGenerator = (color: string) => {
     }
   }); 
 }
-
-// let theme = themeGenerator('blue');
-
-// export const themeSelector = () => {
-//   let favColor = localStorage.getItem("favoriteColor");
-//   return themeGenerator(favColor ? favColor : 'blue');
-// };
-
-// export default theme;

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { CustomizedInput } from '.';
-import CustomIMaskInput from './CutomizedIMaskInput';
+import CustomIMaskInput from './cutomizedIMaskInput';
 
 
 interface PhoneInputProps {
@@ -30,7 +30,7 @@ const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
         InputProps={{
           inputComponent: CustomIMaskInput as any,
           inputProps: {
-            mask: '+{1}(000)000-0000', // Basic E.164 format (modifiable for other patterns)
+            mask: '+{1}(000)000-0000',
             ref: ref,
             onAccept: (value: string) => onChange({ target: { value, name } } as React.ChangeEvent<HTMLInputElement>)
           }

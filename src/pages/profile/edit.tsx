@@ -31,13 +31,12 @@ interface PropsType {
 const capitalizeString = (str: string) => {
     let capitalizedStr = str.charAt(0).toUpperCase() + str.slice(1)
     if (str === 'edit') {
-        let name = localStorageUtil.getItem('fullName');
+        let name = localStorageUtil.getItem<string>('fullName');
         capitalizedStr = capitalizedStr + " " + name;
     }
     return capitalizedStr + ' Profile'
 }
 
-// {...defaultValues, favoriteColor: theme}
 
 const EditProfile: React.FC<PropsType> = ({ mode }) => {
     const isCreate = mode === 'create';
@@ -59,13 +58,11 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
         try {
             if (!isCreate) {
                 updateProfile(data);
-                // themeSelector();
                 navigate(`/profile`);
             } else {
                 const isAlreadyEmail = searchData({ email: data.email });
                 if (!isAlreadyEmail) {
                     saveProfile(data);
-                    // themeSelector();
                     navigate(`/profile`);
                 } else {
                     setMessage('Email has already been existed.');
@@ -80,11 +77,9 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
 
     const handleCancel = () => {
         if (isCreate) {
-            console.log('create mode')
             clearData();
             navigate('/login');
         } else {
-            console.log('edit mode', prevFavColor)
             localStorageUtil.setItem('favoriteColor', prevFavColor)
             navigate('/profile')
         }
@@ -128,7 +123,6 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                         render={({ field }) => (<Input
                                             id="email"
                                             label="Email Address"
-                                            // disabled={mode==='edit'}
                                             autoFocus
                                             helperText={errors.email?.message}
                                             error={errors.email ? true : false}
@@ -190,24 +184,6 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                                 error={errors.phoneNumber ? true : false}
                                             />
                                         )}
-                                    // render={({ field: { onChange, value } }) => (
-                                    //     <PhoneInput onChange={onChange} value={value} />
-                                    //     // <PhoneNumberInput
-                                    //     //     id="phoneNumber"
-                                    //     //     label="Phone Number"
-                                    //     //     value={value}
-                                    //     //     onChange={onChange}
-                                    //     //     helperText={errors.phoneNumber?.message}
-                                    //     //     error={errors.phoneNumber ? true : false}
-                                    //     // />
-                                    //     // <Input
-                                    //     //     id="phoneNumber"
-                                    //     //     label="Phone Number"
-                                    //     //     helperText={errors.phoneNumber?.message}
-                                    //     //     error={errors.phoneNumber ? true : false}
-                                    //     //     {...field}
-                                    //     // />
-                                    // )}
                                     />
                                 </Grid>
 

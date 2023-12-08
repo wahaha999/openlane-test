@@ -1,6 +1,8 @@
+import { blue, green, orange, purple, red, yellow } from "@mui/material/colors";
+
 export const favoriteColors = ['blue', 'red', 'green', 'yellow', 'purple', 'black', 'orange'];
 
-export const primaryColors = ['#3500d0', '#d62828', '#80ed99', '#ffca3a', '#3f37c9', '#343a40', '#ff9f1c'];
+export const primaryColors = [blue[600], red[600], green[600], yellow[600],purple[600], '#343a40', orange[600]];
 
 
 export const defaultValues = {

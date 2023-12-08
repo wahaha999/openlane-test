@@ -1,4 +1,3 @@
-// localStorageUtil.ts
 const setItem = <T>(key: string, value: T): void => {
     try {
       const serializedValue = JSON.stringify(value);

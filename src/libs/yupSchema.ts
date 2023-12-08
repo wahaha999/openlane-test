@@ -20,10 +20,8 @@ const loginSchemaObject = {
       ),
   }
 
-// login schema
 const loginSchema = yup.object().shape(loginSchemaObject);
 
-// profile schema
 const profileSchema = yup.object().shape({
     ...loginSchemaObject,
     fullName: yup

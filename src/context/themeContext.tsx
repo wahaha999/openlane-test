@@ -1,5 +1,4 @@
 import React, { useContext, createContext, useState, ReactNode } from 'react';
-// import { localStorageUtil } from '../utils/localStorageUtils';
 
 interface ThemeContextType {
   theme: string;
@@ -12,9 +11,7 @@ interface ThemeProviderProps {
 }
 
 export function CustomThemeProvider({ children }: ThemeProviderProps): ReactNode {
-  const [theme, setTheme] = useState(
-    // localStorageUtil.getItem('favoriteColor') ? localStorage.getItem('favoriteColor') as string : 
-    'blue');
+  const [theme, setTheme] = useState('blue');
   return (
     <CustomThemeContext.Provider value={{ theme, setTheme }}>
       {

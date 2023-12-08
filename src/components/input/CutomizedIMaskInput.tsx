@@ -5,7 +5,6 @@ interface CustomIMaskInputProps {
   mask: string;
   placeholder?: string;
   onAccept?: (value: string) => void;
-  // No need for inputRef here since we are directly forwarding the ref
 }
 
 const CustomIMaskInput = forwardRef<HTMLInputElement, CustomIMaskInputProps>(
@@ -16,7 +15,7 @@ const CustomIMaskInput = forwardRef<HTMLInputElement, CustomIMaskInputProps>(
         mask={mask}
         placeholder={placeholder}
         onAccept={onAccept}
-        inputRef={ref} // Directly forward the ref here
+        inputRef={ref}
       />
     );
   }

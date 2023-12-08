@@ -20,8 +20,6 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route index element={<ViewProfile />} />
       <Route path='create' element={<EditProfile mode='create' />} />
       <Route path='edit' element={<EditProfile mode='edit' />} />
-      {/* <Route path=':email' element={<DetailProfileLayout />}> */}
-      {/* </Route> */}
     </Route>
     <Route path="*" element={<Navigate to="/login" replace />} />
   </Route>

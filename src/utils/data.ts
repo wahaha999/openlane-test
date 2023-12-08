@@ -8,10 +8,8 @@ const deleteProfile = (email: string) => {
     ? (JSON.parse(storedProfiles) as ProfileDataType[])
     : [];
 
-  // Search the profiles
   const results = profiles.filter((profile) => profile.email !== email);
 
-  // Save updated profile
   localStorage.setItem("profiles", JSON.stringify(results));
 
   return;
@@ -23,7 +21,6 @@ const saveProfile = (data: ProfileDataType) => {
     ? (JSON.parse(storedProfiles) as ProfileDataType[])
     : [];
 
-  // Save a new profile
   profiles.push(data);
   localStorage.setItem("profiles", JSON.stringify(profiles));
   saveData(data);
@@ -47,7 +44,6 @@ const searchData = (query: ProfileDataQueryType) => {
     ? (JSON.parse(storedProfiles) as ProfileDataType[])
     : [];
 
-  // Search the profiles
   const results = profiles.filter(
     (profile) =>
       (query.email ? profile.email.includes(query.email) : true) &&
@@ -65,7 +61,6 @@ const getData = (): ProfileDataType => {
     const favoriteColor = localStorageUtil.getItem<string>("favoriteColor");
     const password = localStorageUtil.getItem<string>("password");
 
-    // Check if all required data is present
     if (email && fullName && phoneNumber && favoriteColor && password) {
       return {
         email,
