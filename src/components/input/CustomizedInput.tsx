@@ -41,19 +41,3 @@ const CustomizedInput = React.forwardRef((props: CustomizedInputProps, ref: Forw
 });
 
 export default CustomizedInput;
-
-// 'use client';
-// import React, { ForwardedRef } from 'react'
-// import { TextField, TextFieldProps } from '@mui/material'
-
-// const CustomizedInput = React.forwardRef((props: TextFieldProps, ref: ForwardedRef<HTMLInputElement>) => (
-//     <TextField
-//       ref={ref}
-//       margin="normal"
-//       fullWidth
-//       {...props}
-//     />
-//   )
-// );
-
-// export default CustomizedInput;
