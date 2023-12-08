@@ -1,5 +1,5 @@
 import React from 'react'
-import { CakeOutlined, ColorLensOutlined, DeleteOutline, Edit, EmailOutlined, EventNoteOutlined, FamilyRestroomOutlined, LocalPhoneOutlined, PlusOneOutlined } from "@mui/icons-material";
+import { ArrowBackOutlined, CakeOutlined, ColorLensOutlined, DeleteOutline, Edit, EmailOutlined, EventNoteOutlined, FamilyRestroomOutlined, LocalPhoneOutlined, PlusOneOutlined } from "@mui/icons-material";
 import {
     Box,
     Typography,
@@ -10,14 +10,14 @@ import {
 import { clearData, deleteProfile, searchData } from '../../utils/data';
 import { ProfileDataType } from "../../types/profile";
 import { useNavigate } from 'react-router-dom'
-import ConfirmationDialogRaw from '../../components/ConfirmDialog';
-import OLAvatar from '../../components/Avatar';
-import OLIconButton from '../../components/IconButton';
-import OLBox from '../../components/DetailBox';
-import OLColorButton from '../../components/ColorButton';
+import ConfirmationDialogRaw from '../../components/confirmDialog';
+import OLAvatar from '../../components/avatar';
+import OLIconButton from '../../components/iconButton';
+import OLBox from '../../components/detailBox';
+import OLColorButton from '../../components/colorButton';
 import { localStorageUtil } from '../../utils/localStorageUtils';
 import { setSessionStart, checkSessionTimeout, clearSession } from '../../utils/sessionUtils';
-import Alert from '../../components/Alert';
+import Alert from '../../components/alert';
 import { useTheme } from '../../context/themeContext';
 
 const ViewProfile = () => {
@@ -82,19 +82,32 @@ const ViewProfile = () => {
         navigate(`/profile/edit`);
     }
 
+    const handleLogOut = () => {
+        clearData();
+        navigate('/login')
+    }
+
 
     return (
         profile ?
             <Box
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
             >
+                <Button
+                    sx={{maxWidth: 170, my: 5}}
+                    variant='outlined'
+                    startIcon={<ArrowBackOutlined />}
+                    onClick={handleLogOut}
+                >
+                    Log out
+                </Button>
 
                 <Grid
                     justifyContent="flex-start"
                     alignItems="center"
                     container
                     spacing={6}
-                    sx={{ my: 6 }}
+                    sx={{ mb: 5 }}
                 >
                     <Grid item>
                         <OLAvatar />
@@ -104,7 +117,7 @@ const ViewProfile = () => {
                     </Grid>
                 </Grid>
 
-                <Grid container sx={{ my: 4 }}>
+                <Grid container sx={{ my: 2 }}>
                     <Grid item md={1}>
                         <OLIconButton>
                             <FamilyRestroomOutlined />
@@ -162,7 +175,7 @@ const ViewProfile = () => {
                     </Grid>
                 </OLBox>
 
-                <Grid container justifyContent={'flex-end'} spacing={1} sx={{ marginTop: 6 }}>
+                <Grid container justifyContent={'flex-end'} spacing={1} sx={{ py: 6 }}>
                     <Grid item>
                         <Button color='primary' variant='contained' startIcon={<Edit />} onClick={handleEdit}>Edit</Button>
                     </Grid>

@@ -2,9 +2,9 @@ import { RouterProvider, Route, createBrowserRouter, createRoutesFromElements, N
 import Login from './pages/login';
 import EditProfile from './pages/profile/edit';
 import ViewProfile from './pages/profile/detail';
-import AuthLayout from './components/Layouts/AuthLayout';
-import ProfileLayout from './components/Layouts/ProfileLayout';
-import AppLayout from './components/Layouts/AppLayout';
+import AuthLayout from './components/layouts/AuthLayout';
+import ProfileLayout from './components/layouts/ProfileLayout';
+import AppLayout from './components/layouts/AppLayout';
 import { ThemeProvider } from '@mui/material';
 import  { themeGenerator } from './styles/theme';
 import { useTheme } from './context/themeContext';

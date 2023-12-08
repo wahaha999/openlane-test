@@ -1,4 +1,4 @@
-import { LockOutlined } from "@mui/icons-material";
+import { LockOutlined, LoginOutlined } from "@mui/icons-material";
 import { useNavigate } from 'react-router-dom';
 import {
     Box,
@@ -8,8 +8,8 @@ import {
     Grid,
     Snackbar
 } from "@mui/material";
-import Alert from "../../components/Alert";
-import { MyTextField as Input } from '../../components/Input'
+import Alert from "../../components/alert";
+import { CustomizedInput as Input } from '../../components/input'
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loginSchema } from "../../libs/yupSchema";
@@ -113,6 +113,7 @@ const Login = () => {
                             <Button
                                 type='submit'
                                 variant="contained"
+                                startIcon={<LoginOutlined />}
                             >
                                 Login
                             </Button>

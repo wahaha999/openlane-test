@@ -1,5 +1,5 @@
 import React from 'react'
-import { ColorLensOutlined, EmailOutlined, LocalPhoneOutlined, LockOutlined, PermIdentityOutlined, PersonOutline, SaveOutlined } from "@mui/icons-material";
+import { CancelOutlined, ColorLensOutlined, EmailOutlined, LocalPhoneOutlined, LockOutlined, PermIdentityOutlined, PersonOutline, SaveOutlined } from "@mui/icons-material";
 import { useNavigate } from 'react-router-dom';
 import {
     Container,
@@ -11,15 +11,15 @@ import {
     Snackbar,
     Grid
 } from "@mui/material";
-import Alert from "../../components/Alert";
-import { MyTextField as Input } from '../../components/Input'
+import Alert from "../../components/alert";
+import { CustomizedInput as Input, PhoneInput } from '../../components/input'
 import { useState } from "react";
 import { profileSchema } from "../../libs/yupSchema";
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ProfileDataType } from "../../types/profile";
-import { searchData, saveProfile, getData, updateProfile } from '../../utils/data';
-import ColorPicker from '../../components/ColorPicker';
+import { searchData, saveProfile, getData, updateProfile, clearData } from '../../utils/data';
+import ColorPicker from '../../components/colorPicker';
 import { localStorageUtil } from '../../utils/localStorageUtils';
 import { defaultValues } from '../../libs/constant';
 import { useTheme } from '../../context/themeContext';
@@ -49,10 +49,10 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
     });
     const navigate = useNavigate();
     const { setTheme } = useTheme();
+    const prevFavColor = localStorageUtil.getItem('favoriteColor') as string;
 
     React.useEffect(() => {
-        const favColor = localStorageUtil.getItem('favoriteColor') as string
-        setTheme(favColor);
+        setTheme(prevFavColor);
     }, [])
 
     const onSubmit = async (data: ProfileDataType) => {
@@ -79,8 +79,15 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
     }
 
     const handleCancel = () => {
-
-        navigate('/profile')
+        if (isCreate) {
+            console.log('create mode')
+            clearData();
+            navigate('/login');
+        } else {
+            console.log('edit mode', prevFavColor)
+            localStorageUtil.setItem('favoriteColor', prevFavColor)
+            navigate('/profile')
+        }
     }
 
     const handleClose = (_?: React.SyntheticEvent | Event, reason?: string) => {
@@ -94,7 +101,7 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
 
     return (
         <>
-            <Container maxWidth="xs">
+            <Container maxWidth="md">
                 <CssBaseline />
                 <Box
                     sx={{
@@ -175,22 +182,32 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                         control={control}
                                         name="phoneNumber"
                                         render={({ field }) => (
-                                            // <PhoneNumberInput
-                                            //     id="phoneNumber"
-                                            //     label="Phone Number"
-                                            //     value={value}
-                                            //     onChange={onChange}
-                                            //     helperText={errors.phoneNumber?.message}
-                                            //     error={errors.phoneNumber ? true : false}
-                                            // />
-                                            <Input
-                                                id="phoneNumber"
+                                            <PhoneInput
+                                                {...field}
                                                 label="Phone Number"
+                                                variant="outlined"
                                                 helperText={errors.phoneNumber?.message}
                                                 error={errors.phoneNumber ? true : false}
-                                                {...field}
                                             />
                                         )}
+                                    // render={({ field: { onChange, value } }) => (
+                                    //     <PhoneInput onChange={onChange} value={value} />
+                                    //     // <PhoneNumberInput
+                                    //     //     id="phoneNumber"
+                                    //     //     label="Phone Number"
+                                    //     //     value={value}
+                                    //     //     onChange={onChange}
+                                    //     //     helperText={errors.phoneNumber?.message}
+                                    //     //     error={errors.phoneNumber ? true : false}
+                                    //     // />
+                                    //     // <Input
+                                    //     //     id="phoneNumber"
+                                    //     //     label="Phone Number"
+                                    //     //     helperText={errors.phoneNumber?.message}
+                                    //     //     error={errors.phoneNumber ? true : false}
+                                    //     //     {...field}
+                                    //     // />
+                                    // )}
                                     />
                                 </Grid>
 
@@ -211,7 +228,7 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                 </Grid>
                             </Grid>
 
-                            <Grid container direction={'row'} justifyContent="flex-end" md={12} sm={12}
+                            <Grid container direction={'row'} justifyContent="flex-end" spacing={1}
                                 sx={{ textAlign: "right", mt: 4, mb: 2 }}>
                                 <Grid item>
                                     <Button
@@ -223,7 +240,11 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
                                     </Button>
                                 </Grid>
                                 <Grid item>
-                                    <Button variant='outlined' onClick={handleCancel}>
+                                    <Button
+                                        variant='outlined'
+                                        onClick={handleCancel}
+                                        startIcon={<CancelOutlined />}
+                                    >
                                         Cancel
                                     </Button>
                                 </Grid>
