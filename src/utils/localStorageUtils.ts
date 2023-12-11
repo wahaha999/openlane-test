@@ -1,4 +1,4 @@
-const setItem = <T>(key: string, value: T): void => {
+const setItem = <T = string>(key: string, value: T): void => {
     try {
       const serializedValue = JSON.stringify(value);
       localStorage.setItem(key, serializedValue);
@@ -7,7 +7,7 @@ const setItem = <T>(key: string, value: T): void => {
     }
   };
   
-  const getItem = <T>(key: string): T | undefined => {
+  const getItem = <T = string>(key: string): T | undefined => {
     try {
       const serializedValue = localStorage.getItem(key);
       return serializedValue !== null ? JSON.parse(serializedValue) as T : undefined;

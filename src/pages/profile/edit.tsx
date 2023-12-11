@@ -31,7 +31,7 @@ interface PropsType {
 const capitalizeString = (str: string) => {
     let capitalizedStr = str.charAt(0).toUpperCase() + str.slice(1)
     if (str === 'edit') {
-        let name = localStorageUtil.getItem<string>('fullName') as string;
+        let name = localStorageUtil.getItem('fullName') as string;
         capitalizedStr = capitalizedStr + " " + name;
     }
     return capitalizedStr + ' Profile'
@@ -48,7 +48,7 @@ const EditProfile: React.FC<PropsType> = ({ mode }) => {
     });
     const navigate = useNavigate();
     const { setTheme } = useTheme();
-    const prevFavColor = localStorageUtil.getItem<string>('favoriteColor') as string;
+    const prevFavColor = localStorageUtil.getItem('favoriteColor') as string;
 
     React.useEffect(() => {
         setTheme(prevFavColor);

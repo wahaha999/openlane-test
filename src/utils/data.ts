@@ -55,11 +55,11 @@ const searchData = (query: ProfileDataQueryType) => {
 
 const getData = (): ProfileDataType => {
   try {
-    const email = localStorageUtil.getItem<string>("email");
-    const fullName = localStorageUtil.getItem<string>("fullName");
-    const phoneNumber = localStorageUtil.getItem<string>("phoneNumber");
-    const favoriteColor = localStorageUtil.getItem<string>("favoriteColor");
-    const password = localStorageUtil.getItem<string>("password");
+    const email = localStorageUtil.getItem("email");
+    const fullName = localStorageUtil.getItem("fullName");
+    const phoneNumber = localStorageUtil.getItem("phoneNumber");
+    const favoriteColor = localStorageUtil.getItem("favoriteColor");
+    const password = localStorageUtil.getItem("password");
 
     if (email && fullName && phoneNumber && favoriteColor && password) {
       return {
