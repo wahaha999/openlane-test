@@ -8,6 +8,18 @@ import AppLayout from './components/layouts/AppLayout';
 import { ThemeProvider } from '@mui/material';
 import  { themeGenerator } from './styles/theme';
 import { useTheme } from './context/themeContext';
+import React, { ReactNode } from "react";
+import { checkAuth } from "./utils/sessionUtils";
+
+interface RequireAuthProps {
+    children: ReactNode
+}
+
+const RequireAuth: React.FC<RequireAuthProps> = ({ children }) => {
+    const isAuth = checkAuth();
+
+    return isAuth ? <>{children}</> : <Navigate to={'/login'} replace />
+}
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -19,9 +31,9 @@ const router = createBrowserRouter(createRoutesFromElements(
     </Route>
 
     <Route path='profile' element={<ProfileLayout />}>
-      <Route index element={<ViewProfile />} />
+      <Route index element={<RequireAuth><ViewProfile /></RequireAuth>} />
       <Route path='create' element={<EditProfile mode='create' />} />
-      <Route path='edit' element={<EditProfile mode='edit' />} />
+      <Route path='edit' element={<RequireAuth><EditProfile mode='edit' /></RequireAuth>} />
     </Route>
     
     <Route path="*" element={<Navigate to="/login" replace />} />
