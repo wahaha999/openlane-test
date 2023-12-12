@@ -28,7 +28,8 @@ const saveProfile = (data: ProfileDataType) => {
 };
 
 const updateProfile = (data: ProfileDataType) => {
-  deleteProfile(data.email);
+  let email = localStorageUtil.getItem('email') as string;
+  deleteProfile(email);
   saveProfile(data);
 };
 
